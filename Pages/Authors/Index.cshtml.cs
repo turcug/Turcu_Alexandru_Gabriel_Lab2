@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Turcu_Alexandru_Gabriel_Lab2.Data;
 using Turcu_Alexandru_Gabriel_Lab2.Models;
 
-namespace Turcu_Alexandru_Gabriel_Lab2.Pages.Books
+namespace Turcu_Alexandru_Gabriel_Lab2.Pages.Authors
 {
     public class IndexModel : PageModel
     {
@@ -19,18 +19,13 @@ namespace Turcu_Alexandru_Gabriel_Lab2.Pages.Books
             _context = context;
         }
 
-        public IList<Book> Book { get;set; } = default!;
-        public List<Author> Authors { get; private set; }
-        public List<Publisher> Publishers { get; private set; }
+        public IList<Author> Author { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Book != null)
+            if (_context.Author != null)
             {
-                Book = await _context.Book.Include(b => b.Author).ToListAsync();
-                Authors = await _context.Author.ToListAsync();
-                Book = await _context.Book.Include(e => e.Publisher).ToListAsync();
-                Publishers = await _context.Publisher.ToListAsync();
+                Author = await _context.Author.ToListAsync();
             }
         }
     }
