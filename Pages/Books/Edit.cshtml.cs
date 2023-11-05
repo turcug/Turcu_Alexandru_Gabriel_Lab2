@@ -33,7 +33,8 @@ namespace Turcu_Alexandru_Gabriel_Lab2.Pages.Books
             Book = await _context.Book
                 .Include(b => b.Author)
                 .Include(b => b.Publisher)
-                .Include(b => b.BookCategories).ThenInclude(b => b.Category)
+                .Include(b => b.BookCategories)
+                .ThenInclude(c => c.Category)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.ID == id);
             var book =  await _context.Book.FirstOrDefaultAsync(m => m.ID == id);
