@@ -29,9 +29,8 @@ namespace Turcu_Alexandru_Gabriel_Lab2.Pages.Categories
         {
             CategoryData = new CategoriesIndexData();
             CategoryData.Categories = await _context.Category
-                .Include(i => i.BookCategories)
-                    .ThenInclude(c => c.Book)
-                        .ThenInclude(d => d.Author)
+                .Include(i => i.Books)
+                .ThenInclude(c => c.Author)
                 .OrderBy(i => i.CategoryName)
                 .ToListAsync();
             if (id != null)

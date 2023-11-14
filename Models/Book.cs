@@ -20,7 +20,6 @@ namespace Turcu_Alexandru_Gabriel_Lab2.Models
         public DateTime PublishingDate { get; set; }
         public int? PublisherID { get; set; }
         public Publisher? Publisher { get; set; }
-        public int? CategoryID { get; set; }
         public ICollection<BookCategory>? BookCategories { get; set; }
     }
 }

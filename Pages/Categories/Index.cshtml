@@ -1,4 +1,4 @@
-﻿@page "{id:int}"
+﻿@page "{id:int?}"
 @model Turcu_Alexandru_Gabriel_Lab2.Pages.Categories.IndexModel
 
 @{
@@ -59,7 +59,6 @@
                         foreach (var b in item.Books)
                         {
                             @b.Title @: @b.Author.FullName
-
                             <br />
                         }
                     }
